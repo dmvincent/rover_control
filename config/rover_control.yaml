@@ -1,0 +1,29 @@
+security_rover:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+  
+  # Position Controllers ---------------------------------------
+  joint1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: pan_stator_to_rotor
+    pid: {p: 50.0, i: 0.00, d: 2.0}
+
+    # Position Controllers ---------------------------------------
+  joint2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: tilt_stator_to_rotor
+    pid: {p: 50.0, i: 0.00, d: 0.005}
+  
+  # Velocity Controllers ---------------------------------------
+  joint3_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: left_front_wheel_joint
+    pid: {p: 1.0, i: 0.5, d: 0.00005}
+
+    # Velocity Controllers ---------------------------------------
+  joint4_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: right_front_wheel_joint
+    pid: {p: 1.0, i: 0.5, d: 0.00005}
